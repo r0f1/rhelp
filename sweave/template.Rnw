@@ -1,0 +1,57 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+\documentclass[12pt]{article}
+
+\usepackage[ansinew]{inputenc}
+\usepackage[german]{babel}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{graphicx}
+
+
+
+\topmargin  -2cm
+\textheight 24cm
+\textwidth 165mm
+\oddsidemargin -2mm
+
+\SweaveOpts{echo=FALSE,print=FALSE}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\setkeys{Gin}{width=.8\linewidth}
+
+
+\begin{center}
+{\Large \bf My Heading, \\
+Also Part of My Heading But In Next Line}
+
+\vspace{5mm}
+{\large \bf John Doe}\\
+Number: 123456\\
+\today
+\end{center}
+
+\noindent
+
+\section*{Exercise 1}
+
+<<>>=
+packages <- c("xtable", "Hmisc", "gmodels", "stats", 
+							"exact2x2", "plyr", "dplyr", "ggplot2",
+							"RColorBrewer", "aod", "psych", "sqldf",
+							"multcomp", "asbio", "reshape2")
+
+for(i in 1:length(packages)) {
+	pkg <- packages[i]
+	if (!require(pkg, character.only=TRUE)) {
+		install.packages(pkg, repos="http://cran.rstudio.com/")
+		library(pkg, character.only=TRUE)
+	}
+}
+@
+
+
+
+
+\end{document}
